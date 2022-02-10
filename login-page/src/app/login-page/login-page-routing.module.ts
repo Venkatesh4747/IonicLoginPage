@@ -1,0 +1,21 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { LoginPagePage } from './login-page.page';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: LoginPagePage
+  },
+  {
+    path: 'register-page',
+    loadChildren: () => import('./register-page/register-page.module').then( m => m.RegisterPagePageModule)
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class LoginPagePageRoutingModule {}
